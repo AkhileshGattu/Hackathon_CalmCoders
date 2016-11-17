@@ -12,19 +12,19 @@ Heatmap of Tweets - Some % of tweets contains latitude and longitude. Get those 
 
 Use case is completely developed in java using Twitter Heron. Topology consists of a "Spout" and seven "Bolts".
 
-**Spout:** It is a firhose where the streaming of tweets are generated. The data in then emmited to different bolts where actual analytics is done.
+**Spout:** It is a firhose where the streaming of tweets are generated. The data is then emitted to different bolts where actual analytics is done.
 
-**SourceCountBolt:** In this bolt we retrieve the information from "Source" attribute. That is, from which source the tweet has been made. For example, whether the tweet is made from Android, Iphone, Ipad, Deesktop, etc. The count for each individual source is calcualted and the overall tweets count is also calculated. Then the respective counts are stored in MongoDB from where the data is collected and displayed on UI dynamically.
+**SourceCountBolt:** In this bolt we retrieve the information from "Source" attribute. That is, from which source the tweet has been made. For example, whether the tweet is made from Android, Iphone, Ipad, Deesktop, etc. The count for each individual source is calcualted and the overall count of the tweets is  calculated. Then the respective counts are stored in MongoDB from where the data is collected and displayed on UI dynamically.
 
-**CoordinatesBolt:** In this bolt we retrieve the Latitude and Longitude of the person who made the tweet. All the latitude and logitude details are collected for all the tweets that come. These details are then emitted to do furthur analysis in the nect bolt.
+**CoordinatesBolt:** In this bolt we retrieve the Latitude and Longitude of the person who made the tweet. All the latitude and logitude details are collected for all the tweets that come. These details are then emitted to do furthur analysis in the next bolt.
 
 **LocationBolt:** In this bolt the latitude and logitude details that were emiited from the precious bolt are collected.  The data is then stored into MongoDB from where the data is collected and displayed in the UI dynamically.
 
-**CountryFilterBolt:** In this bolt the country details are gathered from each and every tweet in order to know the place from where more number of tweets are coming in a given time. These countrry details are then emitted fro furthur analysis in the next bolt.
+**CountryFilterBolt:** In this bolt the country details are gathered from each and every tweet in order to know the place from where more number of tweets are coming in a given time. These countrry details are then emitted for furthur analysis in the next bolt.
 
 **CountryCountBolt:** In this bolt all the countries details and their respective counts are stored. Then the top three countries from where more number of tweets are made is then calculated. These are details are then stored to MongoDb to displaye dynamically on UI.
 
-**HashTagsBolt:** In this bolt all the different hashtags are present in each and every twet are collected and then emmitted in order to do furthur analysis on the hashtags.
+**HashTagsBolt:** In this bolt all the different hashtags are present in each and every tweet are collected and then emitted in order to do furthur analysis on the hashtags.
 
 **TopTenHashTagsBolt:** In this bolt the hash tags that are emitted from the previous bolt are gathered and then the count of the hashtags are calculated. This is done in order to findout the most trending HashTag, Top ten hashtags. These details are then stored into the MongoDB which are later retrieved to display on the front end.
 

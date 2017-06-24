@@ -22,7 +22,7 @@ Use case is completely developed in java using Twitter Heron. Topology consists 
 
 **CountryFilterBolt:** In this bolt the country details are gathered from each and every tweet in order to know the place from where more number of tweets are coming in a given time. These countrry details are then emitted for furthur analysis in the next bolt.
 
-**CountryCountBolt:** In this bolt all the countries details and their respective counts are stored. Then the top three countries from where more number of tweets are made is then calculated. These are details are then stored to MongoDb to displaye dynamically on UI.
+**CountryCountBolt:** In this bolt all the countries details and their respective counts are stored. Then the top three countries from where more number of tweets are made is then calculated. These are details are then stored to MongoDb to display dynamically on UI.
 
 **HashTagsBolt:** In this bolt all the different hashtags are present in each and every tweet are collected and then emitted in order to do furthur analysis on the hashtags.
 
